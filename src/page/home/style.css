@@ -1,0 +1,8 @@
+.home-background {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(180deg, #d3d2d2 0%, #ebebeb 100%);
+}

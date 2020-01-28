@@ -1,0 +1,7 @@
+.home-content {
+  display: grid;
+  height: 100%;
+  max-width: 1400px;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+}

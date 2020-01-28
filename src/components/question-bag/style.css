@@ -1,0 +1,49 @@
+.bag-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 80px;
+  position: fixed;
+}
+
+.question-bag {
+  margin: 10px;
+  width: 210px;
+  height: 80px;
+  background: linear-gradient(
+    74.25deg,
+    #434343 10.19%,
+    rgba(67, 67, 67, 0.87) 93.03%
+  );
+  box-shadow: 4px 7px 13px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  border: none;
+  color: #c9c9c9;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.08);
+  font-family: "Open Sans";
+  font-size: 12pt;
+  align-items: center;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+  animation: show-bags 550ms ease-in-out backwards;
+  padding: 10px;
+  transition: all 150ms ease-in-out;
+  opacity: 100%;
+}
+
+.question-bag:hover {
+  opacity: 85%;
+}
+
+@keyframes show-bags {
+  from {
+    scale: 0.3;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+
+    scale: 1;
+  }
+}
