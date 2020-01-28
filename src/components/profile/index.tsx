@@ -9,6 +9,7 @@ function Profile() {
       <h1>Juan Felix</h1>
       <span className="eng">Software Engineering</span>
       <span className="type-dev">Fullstack</span>
+      <span className="type-dev">Curitiba - Brazil</span>
     </div>
   );
 }

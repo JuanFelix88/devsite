@@ -4,10 +4,11 @@ interface StackProps {
   setText?: React.Dispatch<React.SetStateAction<string | undefined>>;
   setOp: React.Dispatch<React.SetStateAction<boolean>>;
   setShowBags: React.Dispatch<React.SetStateAction<boolean>>;
+  stage?: "apresentation" | "loading-answer" | "get-name";
 }
 
 function Stack(props: StackProps) {
-  const { setText, setOp, setShowBags } = props;
+  const { setText, setOp, setShowBags, stage } = props;
 
   useEffect(() => {
     setOp(true);
@@ -20,7 +21,7 @@ function Stack(props: StackProps) {
     setTimeout(() => handleUpdateText("Hi, whats up?"), 2600);
     setTimeout(() => handleUpdateText("How i help you?"), 5500);
     setTimeout(() => setShowBags(true), 5950);
-  }, []); // eslint-disable-line
+  }, [stage]); // eslint-disable-line
 
   function handleUpdateText(text: string): void {
     setOp(false);

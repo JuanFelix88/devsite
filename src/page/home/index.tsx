@@ -10,7 +10,7 @@ function HomePage() {
     <div className="home-background">
       <Header />
       <Content>
-        <Conversation>How i help you?</Conversation>
+        <Conversation />
         <Profile />
       </Content>
     </div>
