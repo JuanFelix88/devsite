@@ -1,0 +1,20 @@
+.conversation {
+  font-family: "Open Sans", sans-serif;
+  font-size: 32pt;
+  align-items: center;
+  text-align: center;
+  color: #292929;
+  text-shadow: 0px 2px 3px #0000003a;
+  animation: show-conversation 350ms ease-in-out backwards;
+}
+
+@keyframes show-conversation {
+  from {
+    opacity: 0;
+    scale: 0.8;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
