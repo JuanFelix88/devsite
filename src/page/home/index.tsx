@@ -8,7 +8,7 @@ import "./style.css";
 function HomePage() {
   return (
     <div className="home-background">
-      <Header />
+      {/* <Header /> */}
       <Content>
         <Conversation />
         <Profile />
