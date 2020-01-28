@@ -1,7 +1,22 @@
-.home-content {
-  display: grid;
-  height: 100%;
-  max-width: 1400px;
-  width: 100%;
-  grid-template-columns: 1fr 1fr;
+@media only screen and (max-width: 700px) {
+  .home-content {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-rows: 1fr 1.2fr;
+    grid-auto-flow: dense;
+    z-index: 2;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .home-content {
+    max-width: 1400px;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+    z-index: 2;
+  }
 }

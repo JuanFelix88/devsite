@@ -2,20 +2,30 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 100px;
-  position: fixed;
+  margin-top: 10px;
+  width: 100%;
+  padding: 0px 20px;
+}
+
+@media only screen and (max-width: 700px) {
+  .bag-content {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .question-bag {
-  margin: 10px 25px;
-  width: 210px;
-  height: 80px;
+  margin: 10px;
+  min-height: 50px;
+  max-width: 200px;
+  width: auto;
+  height: auto;
   background: linear-gradient(
     74.25deg,
     #434343 10.19%,
     rgba(67, 67, 67, 0.87) 93.03%
   );
-  box-shadow: 4px 7px 13px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 7px 13px 4px rgba(0, 0, 0, 0.158);
   border-radius: 2px;
   border: none;
   color: #c9c9c9;
@@ -26,8 +36,8 @@
   text-align: center;
   outline: none;
   cursor: pointer;
-  animation: show-bags 550ms ease-in-out backwards;
-  padding: 10px;
+  animation: show-bags 450ms ease-in-out backwards;
+  padding: 5px;
   transition: all 150ms ease-in-out;
   opacity: 100%;
 }
@@ -39,14 +49,11 @@
 
 @keyframes show-bags {
   from {
-    scale: 0.3;
     opacity: 0;
-    transform: translateX(-5%);
+    transform: translateX(-3%);
   }
   to {
-    scale: 1;
+    opacity: 1;
     transform: translateX(0%);
-
-    scale: 1;
   }
 }

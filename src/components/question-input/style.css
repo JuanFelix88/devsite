@@ -1,0 +1,117 @@
+.question-input {
+  max-width: 330px;
+  width: 80%;
+  height: 70px;
+  background: linear-gradient(
+    64.48deg,
+    #434343 10.19%,
+    rgba(67, 67, 67, 0.87) 93.03%
+  );
+  box-shadow: 4px 7px 13px 3px rgba(0, 0, 0, 0.205);
+  border-radius: 5px;
+  z-index: 2;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  animation: show-form 650ms ease-in-out 250ms backwards;
+}
+
+@keyframes show-form {
+  from {
+    opacity: 0;
+    transform: translateY(3%);
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.question-input > label {
+  font-family: "Open Sans";
+  font-size: 12pt;
+  color: #c9c9c9;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.08);
+}
+
+.question-input > input {
+  padding: 5px;
+  margin-top: 5px;
+  height: 35px;
+  background: linear-gradient(
+    94.38deg,
+    #dcdcdc 11.97%,
+    rgba(220, 220, 220, 0.95) 102.96%
+  );
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-family: "Open Sans";
+  font-size: 12pt;
+  color: #515151;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.08);
+}
+
+.question-input > input:hover {
+  background: linear-gradient(
+    94.38deg,
+    #dcdcdc 11.97%,
+    rgba(220, 220, 220, 0.95) 102.96%
+  );
+}
+
+.question-input > input:active {
+  background: linear-gradient(94.38deg, #e6e4e4 11.97%, #f0efeff2 102.96%);
+}
+
+.question-input > input::placeholder {
+  font-family: "Open Sans";
+  font-size: 13pt;
+  color: #989898;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.08);
+}
+
+.button-done-form {
+  z-index: 1;
+  width: 70%;
+  min-height: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  position: -ms-page;
+  background: #4d4d4d;
+  height: 80px !important;
+  box-shadow: 4px 7px 15px rgba(0, 0, 0, 0.212);
+  border-radius: 4px;
+  font-family: "Open Sans";
+  font-weight: 500;
+  font-size: 13pt;
+  text-align: center;
+  color: #c9c9c9;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.075);
+  transition: all 250ms ease-in-out;
+  opacity: 1;
+  padding: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transform: translateY(21.7px);
+}
+
+.button-done-form:hover {
+  background: #575757;
+}
+
+.button-done-form:disabled {
+  height: 20px !important;
+  opacity: 0;
+  transform: translateY(0px);
+  cursor: initial;
+  background: linear-gradient(
+    64.48deg,
+    #434343 10.19%,
+    rgba(67, 67, 67, 0.87) 93.03%
+  );
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0);
+  font-family: "Open Sans";
+  color: #434343e3;
+}

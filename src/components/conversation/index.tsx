@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import "./style.css";
 import Stack from "./stack";
 import BagButton, { Content } from "../question-bag";
 
-type Stages = "apresentation" | "loading-answer" | "get-name";
+type Stages =
+  | "apresentation"
+  | "loading-apresentation"
+  | "loading-answer"
+  | "get-name";
 
 interface PropsConversation {
   children?: string;
@@ -15,13 +19,11 @@ function Conversation(props: PropsConversation) {
   const [showBags, setShowbags] = useState<boolean>(false);
   const [stage, setStage] = useState<Stages>("apresentation");
 
-  // useEffect(() => {
-  //   setStage("apresentation");
-  // }, []);
+  const [QuestionInput, setQuestionInput] = useState<JSX.Element>();
 
   function handleClickProjects(): void {
-    console.log("teste!");
-    setStage("get-name");
+    setTimeout(() => setShowbags(false), 150);
+    setStage("loading-apresentation");
   }
 
   return (
@@ -38,15 +40,21 @@ function Conversation(props: PropsConversation) {
           <BagButton onClick={handleClickProjects}>
             I want a project like web, system, mobile and others
           </BagButton>
-          <BagButton>I just need to get in touch</BagButton>
+          <BagButton delay={300}>I just need to get in touch</BagButton>
         </Content>
-      ) : null}
+      ) : (
+        <Content />
+      )}
+
+      {QuestionInput}
 
       <Stack
+        setQuestionInput={setQuestionInput}
         setText={setText}
         setOp={setOp}
         setShowBags={setShowbags}
         stage={stage}
+        setStage={setStage}
       />
     </div>
   );

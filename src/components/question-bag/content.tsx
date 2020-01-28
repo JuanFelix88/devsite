@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 interface PropsQuestion {
-  children?: React.ReactNode;
+  children?: React.ReactNode | null;
 }
 
 function ContentBag(props: PropsQuestion) {
