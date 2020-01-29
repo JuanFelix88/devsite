@@ -11,6 +11,7 @@
   .bag-content {
     flex-direction: column;
     align-items: center;
+    padding: 0px;
   }
 }
 
@@ -38,13 +39,13 @@
   cursor: pointer;
   animation: show-bags 450ms ease-in-out backwards;
   padding: 5px;
-  transition: all 150ms ease-in-out;
+  transition: all 140ms ease-in-out;
   opacity: 100%;
 }
 
 .question-bag:hover {
   opacity: 85%;
-  box-shadow: 4px 7px 13px #0000003f;
+  box-shadow: 4px 7px 13px #00000049;
 }
 
 @keyframes show-bags {

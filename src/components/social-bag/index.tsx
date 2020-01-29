@@ -6,7 +6,7 @@ import MediumLogo from "../../assets/social/medium.svg";
 import GmailLogo from "../../assets/social/gmail.svg";
 import LinkedInLogo from "../../assets/social/linked-in.svg";
 
-function BagSocial() {
+function SocialBag() {
   return (
     <div className="bag-social">
       <img src={GitLogo} style={{ animationDelay: "1300ms" }} alt="Git Hub" />
@@ -30,4 +30,4 @@ function BagSocial() {
   );
 }
 
-export default BagSocial;
+export default SocialBag;
