@@ -1,11 +1,13 @@
 import React, { useEffect, useCallback } from "react";
 import QuestionInput from "../question-input";
+import BagButton, { Content } from "../question-bag";
 
-type Stages =
+export type Stages =
   | "apresentation"
   | "loading-apresentation"
   | "loading-answer"
-  | "get-name";
+  | "get-name"
+  | "request-msg";
 
 interface StackProps {
   setText?: React.Dispatch<React.SetStateAction<string | undefined>>;
@@ -30,7 +32,6 @@ function Stack(props: StackProps) {
 
   const handleStageApresentation = useCallback(() => {
     setOp(true);
-    setQuestionInput(<></>);
 
     handleUpdateText(".");
     setTimeout(() => handleUpdateText(".."), 600);
@@ -39,13 +40,12 @@ function Stack(props: StackProps) {
     setTimeout(() => handleUpdateText(".."), 1800);
     setTimeout(() => handleUpdateText("..."), 2200);
     setTimeout(() => handleUpdateText("Hi, whats up?"), 2600);
-    setTimeout(() => handleUpdateText("How to help you?"), 5500);
+    setTimeout(() => handleUpdateText("How can I help you?"), 5500);
     setTimeout(() => setShowBags(true), 5650);
   }, []); // eslint-disable-line
 
   const handleStageLoadApresentation = useCallback(() => {
     setOp(false);
-    setQuestionInput(<></>);
     setTimeout(() => handleUpdateText?.("alright"), 200);
     setTimeout(() => handleUpdateText?.("alright"), 200);
     setTimeout(() => setStage("get-name"), 2900);
@@ -59,7 +59,7 @@ function Stack(props: StackProps) {
         setQuestionInput(
           <QuestionInput
             onDoneForm={() => {
-              setStage("loading-apresentation");
+              setStage("request-msg");
             }}
           />
         ),
@@ -67,10 +67,28 @@ function Stack(props: StackProps) {
     );
   }, []); // eslint-disable-line
 
+  const handleStageRequestMsg = useCallback(() => {
+    setQuestionInput(<></>);
+    setOp(false);
+    setTimeout(() => handleUpdateText("Please wait.."), 200);
+    setTimeout(() => handleUpdateText("What kind of project?"), 1200);
+    // prettier-ignore
+    setTimeout(() => setQuestionInput(
+      <Content typeOrientation="list">
+        <BagButton>E-commerce</BagButton>
+        <BagButton delay={300}>Constitutional Web</BagButton>
+        <BagButton delay={500}>System</BagButton>
+        <BagButton delay={750}>App Mobile</BagButton>
+        <BagButton delay={950}>I'll explain it to you later...</BagButton>
+      </Content>
+    ), 1350);
+  }, []); // eslint-disable-line
+
   useEffect(() => {
     if (stage === "apresentation") handleStageApresentation();
     if (stage === "loading-apresentation") handleStageLoadApresentation();
     if (stage === "get-name") handleStageGetName();
+    if (stage === "request-msg") handleStageRequestMsg();
   }, [stage]); // eslint-disable-line
 
   function handleUpdateText(text: string): void {

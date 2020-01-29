@@ -2,12 +2,7 @@ import React, { useState, useMemo } from "react";
 import "./style.css";
 import Stack from "./stack";
 import BagButton, { Content } from "../question-bag";
-
-type Stages =
-  | "apresentation"
-  | "loading-apresentation"
-  | "loading-answer"
-  | "get-name";
+import { Stages } from "./stack";
 
 interface PropsConversation {
   children?: string;

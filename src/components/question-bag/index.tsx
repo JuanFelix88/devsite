@@ -4,11 +4,16 @@ import "./style.css";
 interface PropsQuestion {
   children?: string;
   /**
+   *
    * Delay
    * - In `ms`
    * @default 0
    */
   delay?: number;
+  /**
+   *
+   * Callback
+   */
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 

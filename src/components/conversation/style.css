@@ -1,5 +1,6 @@
 .conversation {
   width: 100%;
+  margin: 0px 10px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -13,16 +14,17 @@
 @media only screen and (max-width: 700px) {
   .conversation {
     grid-row: 2;
+    margin: 0px;
   }
   .conversation > span {
     margin-top: -30px;
-    font-size: 28pt !important;
+    font-size: 26pt !important;
   }
 }
 
 .conversation > span {
   font-family: "Open Sans", sans-serif;
-  width: 85%;
+  width: 95%;
   font-size: 32pt;
   align-items: center;
   text-align: center;
