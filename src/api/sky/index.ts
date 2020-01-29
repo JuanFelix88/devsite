@@ -86,6 +86,8 @@ class Engine {
   private loop: NodeJS.Timeout;
   public mode: "sleep" | "activated" = "sleep";
   /**
+   *
+   *
    * ### Engine sky boxes
    * - Event loop;
    */
@@ -199,7 +201,8 @@ class Engine {
       velocity: randomFromInterval(0.5, 1) / 10
     };
 
-    // implements a initial style
+    if (window.innerWidth > 2000) prototype.velocity += 0.3;
+
     element.style.left = `${prototype.position[0]}px`;
 
     element.style.webkitFilter = `
@@ -215,8 +218,12 @@ class Engine {
   }
   /**
    *
+   *
+   *
    */
   public generateListBox(layer: number, amount: number): GenerateList {
+    amount = amount > 40 ? 40 : amount;
+
     let idDefault = "ipx";
     const listId: string[] = [...Array(amount)].map((_, i) => {
       return i + idDefault;

@@ -5,6 +5,7 @@ import Content from "../../components/content";
 import Profile from "../../components/profile";
 import BoxeSky from "../../components/sky-background";
 import "./style.css";
+import BagSocial from "../../components/bag-social";
 
 function HomePage() {
   const amount = useMemo<number>(() => {
@@ -19,6 +20,7 @@ function HomePage() {
         <Profile />
       </Content>
       <BoxeSky amount={amount} />
+      <BagSocial />
     </div>
   );
 }

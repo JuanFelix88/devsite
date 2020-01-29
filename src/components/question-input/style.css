@@ -94,7 +94,7 @@
   border: none;
   outline: none;
   cursor: pointer;
-  transform: translateY(21.7px);
+  transform: translateY(20px);
 }
 
 .button-done-form:hover {

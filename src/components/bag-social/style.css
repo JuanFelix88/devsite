@@ -1,0 +1,29 @@
+.bag-social {
+  transform: translateY(-30px);
+  z-index: 2;
+}
+
+.bag-social > img {
+  margin: 5px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  animation: show-img-social 1400ms ease-in-out backwards;
+}
+
+.bag-social > img:hover {
+  opacity: 0.8;
+}
+
+@keyframes show-img-social {
+  0% {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
