@@ -1,3 +1,5 @@
+import ApplyStyle from '../apply-style'
+
 interface LayerOptions {
   /**
    * @default 1
@@ -85,6 +87,7 @@ class Engine {
   public layers: Layer[] = [];
   private loop: NodeJS.Timeout;
   public mode: "sleep" | "activated" = "sleep";
+  public colorStage: number = 0;
   /**
    *
    *
@@ -100,6 +103,33 @@ class Engine {
         });
       });
     }, 10);
+    this.changeColor();
+  }
+
+  protected changeColor() {
+    setInterval(() => {
+      this.layers.forEach((layer, index) => {
+        layer.items.forEach(item => {
+          item.element.style.webkitTransition = "opacity 800ms ease-in-out";
+          item.element.style.transition = `filter 750ms ease-in-out, 
+            background-color 1450ms ease-in-out,
+            opacity 800ms ease-in-out`;
+
+          item.element.style.backgroundColor =
+            this.colorStage === 0
+              ? "#fa1a23"
+              : this.colorStage === 1
+              ? "#Ee9a"
+              : "#72F";
+
+          this.colorStage = this.colorStage === 2 ? 0 : this.colorStage + 1;
+          item.element.style.webkitFilter = `opacity(${randomFromInterval(
+            1,
+            3
+          )}%)`;
+        });
+      });
+    }, 8000);
   }
   /**
    * Render by 5 miliseconds
