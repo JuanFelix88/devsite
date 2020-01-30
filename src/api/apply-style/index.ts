@@ -28,9 +28,10 @@ function applyStyle(
     return (style?: CSSStyleDeclaration) => applyStyle(el, style, transition);
 
   Object.keys(style).forEach(key => {
-    transition.optional.forEach(item => {
+    transition?.optional?.forEach(item => {
       el.style.transition += `${item} ${transition.time}ms ${transition.typeTransition}`;
     });
+    // @ts-ignore
     el.style[key] = style[key];
   });
 }
