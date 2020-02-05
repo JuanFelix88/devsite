@@ -11,10 +11,7 @@
 }
 
 .box-tecnologies > div {
-  margin-top: 150px;
-  margin-bottom: 150px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 110px auto;
   animation: show-interactive 900ms ease-in-out backwards;
 }
 
