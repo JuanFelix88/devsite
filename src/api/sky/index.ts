@@ -84,6 +84,7 @@ function randomFromInterval(min: number, max: number) {
 }
 
 class Engine {
+  private timeLoop: number = 25;
   public layers: Layer[] = [];
   private loop: NodeJS.Timeout;
   public mode: "sleep" | "activated" = "sleep";
@@ -102,7 +103,7 @@ class Engine {
           if (this.garbageRespawn(index, item)) this.calculateAndRender(item);
         });
       });
-    }, 10);
+    }, this.timeLoop);
     // this.changeColor();
   }
 
@@ -142,7 +143,7 @@ class Engine {
           if (this.garbageRespawn(index, item)) this.calculateAndRender(item);
         });
       });
-    }, 10);
+    }, this.timeLoop);
   }
   /**
    *
@@ -252,7 +253,7 @@ class Engine {
    *
    */
   public generateListBox(layer: number, amount: number): GenerateList {
-    amount = amount > 40 ? 40 : amount;
+    amount = amount > 30 ? 30 : amount;
 
     let idDefault = "ipx";
     const listId: string[] = [...Array(amount)].map((_, i) => {
