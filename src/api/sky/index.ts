@@ -1,4 +1,4 @@
-import ApplyStyle from '../apply-style'
+import ApplyStyle from "../apply-style";
 
 interface LayerOptions {
   /**
@@ -103,7 +103,7 @@ class Engine {
         });
       });
     }, 10);
-    this.changeColor();
+    // this.changeColor();
   }
 
   protected changeColor() {

@@ -12,12 +12,12 @@ interface Props {
 function BoxesSky(props: Props) {
   const { list, resolveList } = useMemo(
     () => RenderBox.generateListBox(0, props.amount || 20),
-    []
+    [props.amount]
   );
 
   useEffect(() => {
     resolveList();
-  }, []);
+  }, [resolveList]);
 
   return (
     <div className="home-sky">
