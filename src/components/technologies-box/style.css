@@ -1,20 +1,44 @@
 .box-tecnologies {
-  height: 1000px;
-  width: 100vw;
-  padding: 10px 8%;
+  height: auto;
+  width: 100%;
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 20px;
   margin: 0px !important;
-  background: linear-gradient(159.65deg, #a7a7a7 15.27%, #b9b9b9 86.62%);
+  background: linear-gradient(159.65deg, #a7a7a7 15.27%, #c9c9c9 86.62%);
+  flex-wrap: wrap;
+  z-index: 5;
 }
 
 .box-tecnologies > div {
   margin-top: 150px;
+  margin-bottom: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: show-interactive 900ms ease-in-out backwards;
 }
+
+@keyframes show-interactive {
+  from {
+    opacity: 0;
+    transform: translateX(-3%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+/*
+  left
+*/
 
 .box-interactive-left {
   display: grid;
   grid-template-columns: 1fr 5fr;
   width: 75%;
-  max-width: 750px;
+  max-width: 650px;
+  min-width: 450px;
 }
 
 .box-interactive-left > span {
@@ -41,14 +65,17 @@
   border-radius: 3px;
 }
 
-/*a*/
+/*
+  right
+*/
 
 .box-interactive-right {
   margin: 0px 10px;
   display: grid;
   grid-template-columns: 5fr 1fr;
   width: 75%;
-  max-width: 750px;
+  max-width: 650px;
+  min-width: 450px;
 }
 
 .box-interactive-right > span {
