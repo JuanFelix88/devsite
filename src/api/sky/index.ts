@@ -85,6 +85,7 @@ function randomFromInterval(min: number, max: number) {
 
 class Engine {
   private timeLoop: number = 25;
+  public activated: boolean = true;
   public layers: Layer[] = [];
   private loop: NodeJS.Timeout;
   public mode: "sleep" | "activated" = "sleep";
@@ -136,6 +137,7 @@ class Engine {
    * Render by 5 miliseconds
    */
   protected __init__(): void {
+    this.activated = true;
     if (this.mode === "activated") return;
     this.loop = setInterval(() => {
       this.layers.forEach((layer, index) => {
@@ -164,13 +166,14 @@ class Engine {
    *
    */
   public turnOff(): void {
+    this.activated = false;
     clearInterval(this.loop);
   }
   /**
    *
    */
   public turnOn(): void {
-    this.__init__();
+    if (this.activated === false) this.__init__();
   }
   /**
    *

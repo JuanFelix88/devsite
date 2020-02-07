@@ -12,7 +12,6 @@
 
 .box-tecnologies > div {
   margin: 110px auto;
-  animation: show-interactive 900ms ease-in-out backwards;
 }
 
 @keyframes show-interactive {
@@ -36,6 +35,7 @@
   width: 75%;
   max-width: 650px;
   min-width: 450px;
+  opacity: 0;
 }
 
 .box-interactive-left > span {
@@ -73,6 +73,7 @@
   width: 75%;
   max-width: 650px;
   min-width: 450px;
+  opacity: 0;
 }
 
 .box-interactive-right > span {
