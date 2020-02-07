@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import Conversation from "../../components/conversation";
 // import Header from "../../components/header";
 import Content from "../../components/content";
@@ -7,7 +7,7 @@ import BoxeSky from "../../components/sky-background";
 import "./style.css";
 import SocialBag from "../../components/social-bag";
 import TecnologiesBox from "../../components/technologies-box";
-import { usePageEventScroll } from "../../api/scroll";
+import { createEventScroll } from "../../api/scroll";
 import SkyEngine from "../../api/sky";
 import Projects from "../../components/projects";
 
@@ -23,41 +23,47 @@ function HomePage() {
   const [showTitleProjects, setShowTitleProjects] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
 
-  usePageEventScroll({ isLowerThan: 250, onlyOnce: true }, () => {
-    SkyEngine.turnOn();
-  });
+  useEffect(() => {
+    createEventScroll({ isLowerThan: 250, onlyOnce: true }, () => {
+      SkyEngine.turnOn();
+    });
 
-  usePageEventScroll({ isGreaterThan: 250, onlyOnce: true }, () => {
-    setShowJS(true);
-  });
+    createEventScroll({ isGreaterThan: 250, onlyOnce: true }, () => {
+      setShowJS(true);
+    });
 
-  usePageEventScroll({ isGreaterThan: 650, onlyOnce: true }, () => {
-    setShowFigma(true);
-  });
+    createEventScroll({ isGreaterThan: 650, onlyOnce: true }, () => {
+      setShowFigma(true);
+    });
 
-  usePageEventScroll({ isGreaterThan: 700, isLowerThan: 1000 }, () => {
-    SkyEngine.turnOff();
-  });
+    createEventScroll({ isGreaterThan: 700, isLowerThan: 1000 }, () => {
+      SkyEngine.turnOff();
+    });
 
-  usePageEventScroll({ isGreaterThan: 1000 }, () => {
-    SkyEngine.turnOn();
-  });
+    createEventScroll({ isGreaterThan: 50 }, scroll => {
+      console.log(scroll);
+    });
 
-  usePageEventScroll({ isGreaterThan: 850, onlyOnce: true }, () => {
-    setShowRN(true);
-  });
+    createEventScroll({ isGreaterThan: 1000 }, () => {
+      SkyEngine.turnOn();
+    });
 
-  usePageEventScroll({ isGreaterThan: 1000, onlyOnce: true }, () => {
-    setShowRust(true);
-  });
+    createEventScroll({ isGreaterThan: 850, onlyOnce: true }, () => {
+      setShowRN(true);
+    });
 
-  usePageEventScroll({ isGreaterThan: 1250, onlyOnce: true }, () => {
-    setShowTitleProjects(true);
-  });
+    createEventScroll({ isGreaterThan: 1000, onlyOnce: true }, () => {
+      setShowRust(true);
+    });
 
-  usePageEventScroll({ isGreaterThan: 1400, onlyOnce: true }, () => {
-    setShowProjects(true);
-  });
+    createEventScroll({ isGreaterThan: 1150, onlyOnce: true }, () => {
+      setShowTitleProjects(true);
+    });
+
+    createEventScroll({ isGreaterThan: 1300, onlyOnce: true }, () => {
+      setShowProjects(true);
+    });
+  }, []);
 
   return (
     <>
