@@ -59,7 +59,6 @@ function HomePage() {
 
     createEventScroll({ isGreaterThan: 1300, onlyOnce: true }, () => {
       setShowProjects(true);
-      setActiveEventScroll(false);
     });
   }, []);
 
