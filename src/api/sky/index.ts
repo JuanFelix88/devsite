@@ -84,7 +84,7 @@ function randomFromInterval(min: number, max: number) {
 }
 
 class Engine {
-  private timeLoop: number = 25;
+  private timeLoop: number = 50;
   public activated: boolean = true;
   public layers: Layer[] = [];
   private loop: NodeJS.Timeout;
@@ -166,8 +166,8 @@ class Engine {
    *
    */
   public turnOff(): void {
-    this.activated = false;
     clearInterval(this.loop);
+    this.activated = false;
   }
   /**
    *
@@ -256,7 +256,7 @@ class Engine {
    *
    */
   public generateListBox(layer: number, amount: number): GenerateList {
-    amount = amount > 30 ? 30 : amount;
+    amount = amount > 20 ? 20 : amount;
 
     let idDefault = "ipx";
     const listId: string[] = [...Array(amount)].map((_, i) => {

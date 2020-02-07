@@ -7,9 +7,10 @@ import BoxeSky from "../../components/sky-background";
 import "./style.css";
 import SocialBag from "../../components/social-bag";
 import TecnologiesBox from "../../components/technologies-box";
-import { createEventScroll } from "../../api/scroll";
+import { createEventScroll, setActiveEventScroll } from "../../api/scroll";
 import SkyEngine from "../../api/sky";
 import Projects from "../../components/projects";
+import Footer from "../../components/page-footer";
 
 function HomePage() {
   const amount = useMemo<number>(() => {
@@ -32,7 +33,7 @@ function HomePage() {
       setShowJS(true);
     });
 
-    createEventScroll({ isGreaterThan: 650, onlyOnce: true }, () => {
+    createEventScroll({ isGreaterThan: 550, onlyOnce: true }, () => {
       setShowFigma(true);
     });
 
@@ -40,19 +41,15 @@ function HomePage() {
       SkyEngine.turnOff();
     });
 
-    createEventScroll({ isGreaterThan: 50 }, scroll => {
-      console.log(scroll);
-    });
-
     createEventScroll({ isGreaterThan: 1000 }, () => {
       SkyEngine.turnOn();
     });
 
-    createEventScroll({ isGreaterThan: 850, onlyOnce: true }, () => {
+    createEventScroll({ isGreaterThan: 650, onlyOnce: true }, () => {
       setShowRN(true);
     });
 
-    createEventScroll({ isGreaterThan: 1000, onlyOnce: true }, () => {
+    createEventScroll({ isGreaterThan: 850, onlyOnce: true }, () => {
       setShowRust(true);
     });
 
@@ -62,6 +59,7 @@ function HomePage() {
 
     createEventScroll({ isGreaterThan: 1300, onlyOnce: true }, () => {
       setShowProjects(true);
+      setActiveEventScroll(false);
     });
   }, []);
 
@@ -83,6 +81,7 @@ function HomePage() {
         rust={showRust}
       />
       <Projects showProjects={showProjects} showTitle={showTitleProjects} />
+      <Footer />
     </>
   );
 }

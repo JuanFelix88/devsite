@@ -1,0 +1,7 @@
+.site-footer {
+  height: 150px;
+  background: linear-gradient(96.41deg, #b7b7b7 13.89%, #c9c9c9 79.79%);
+  box-shadow: 0px -10px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 5;
+}
